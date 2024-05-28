@@ -63,10 +63,10 @@ class TelaInicial extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    BotaoFavorito(icon: Icons.credit_card, label: 'Cartão virtual'),
-                    BotaoFavorito(icon: Icons.credit_card, label: 'Cartão adicional'),
-                    BotaoFavorito(icon: Icons.security, label: 'Seguros'),
-                    BotaoFavorito(icon: Icons.local_offer, label: 'Pacotes'),
+                    BotaoFavorito(icon: Icons.credit_card, label: 'Cartão virtual', labelColor: Colors.black, backgroundColor: Colors.transparent),
+                    BotaoFavorito(icon: Icons.credit_card, label: 'Cartão adicional', labelColor: Colors.black, backgroundColor: Colors.transparent),
+                    BotaoFavorito(icon: Icons.security, label: 'Seguros', labelColor: Colors.black, backgroundColor: Colors.transparent),
+                    BotaoFavorito(icon: Icons.local_offer, label: 'Pacotes', labelColor: Colors.black, backgroundColor: Colors.transparent),
                   ],
                 ),
                 SizedBox(height: 20),
@@ -197,8 +197,10 @@ class CartaoCredito extends StatelessWidget {
 class BotaoFavorito extends StatelessWidget {
   final IconData icon;
   final String label;
+  final Color labelColor;
+  final Color backgroundColor;
 
-  const BotaoFavorito({required this.icon, required this.label});
+  const BotaoFavorito({required this.icon, required this.label, required this.labelColor, required this.backgroundColor});
 
   @override
   Widget build(BuildContext context) {
@@ -206,7 +208,7 @@ class BotaoFavorito extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: backgroundColor,
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(
@@ -218,12 +220,12 @@ class BotaoFavorito extends StatelessWidget {
             ],
           ),
           child: IconButton(
-            icon: Icon(icon, size: 40, color: Color(0xFF346CBD)),
+            icon: Icon(icon, size: 40, color: Colors.white),
             onPressed: () {},
           ),
         ),
         SizedBox(height: 5),
-        Text(label, style: TextStyle(color: Colors.white)),
+        Text(label, style: TextStyle(color: labelColor)),
       ],
     );
   }
